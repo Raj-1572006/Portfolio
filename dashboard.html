@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Raj Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      font-family: 'Segoe UI', sans-serif;
+      background:linear-gradient(to right, rgb(66, 66, 71), rgb(29, 39, 29));
+      color: #ffffff;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: #585050;
+      padding: 20px;
+      height: 100vh;
+      position: fixed;
+      overflow-y: auto;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+    }
+
+    .sidebar h2 {
+      color: #33463e;
+      margin-bottom: 5px;
+    }
+
+    .sidebar p {
+      font-size: 14px;
+      margin-bottom: 30px;
+      color: #bbbbbb;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar ul li {
+      margin-bottom: 15px;
+    }
+
+    .sidebar ul li a {
+      text-decoration: none;
+      color: #ffffff;
+      display: block;
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    .sidebar ul li a:hover,
+    .sidebar ul li a.active {
+      background-color: #00ff99;
+      color: #000;
+    }
+
+    .main-content {
+      margin-left: 250px;
+      padding: 40px 30px;
+      flex: 1;
+    }
+
+    section {
+      display: none;
+      margin-bottom: 60px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #333;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    section h2 {
+      color: #00ff99;
+      margin-bottom: 15px;
+    }
+
+    section p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #dddddd;
+    }
+
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 3px solid #00ff99;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 100%;
+        position: relative;
+      }
+
+      .main-content {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>RAJ GUPTA</h2>
+    <p>Cybersecurity Student</p>
+    <ul>
+      <li><a href="#about" class="active">👤 About</a></li>
+      <li><a href="#education">🎓 Education</a></li>
+      <li><a href="#coursework">📘 UG Coursework</a></li>
+      <li><a href="#skills">🛠️ Technical Skills</a></li>
+      <li><a href="#tools">⚙️ Tools & Tech</a></li>
+      <li><a href="#programming">💻 Programming</a></li>
+      <li><a href="#projects">🚀 Projects</a></li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <section id="about" class="active">
+      <h2>About Me</h2>
+      <img src="raj.jpg" alt="Raj Gupta" class="profile-pic">
+      <p>I'm Raj Gupta, an aspiring Full Stack Developer from Pura Bazar, Ayodhya. Currently pursuing B.Tech in Cyber Security from Lamrin Tech Skills University, Ropar, Punjab. Passionate about creating useful digital products and exploring AI & web development.</p>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <p><strong>Class 12:</strong> Yash Vidya Mandir, Darshan Nagar, Ayodhya<br>
+         <strong>B.Tech (Cyber Security):</strong> Lamrin Tech Skills University, Punjab</p>
+    </section>
+
+    <section id="coursework">
+      <h2>UG Coursework</h2>
+      <p>Courses include Computer Networks, Operating Systems, Cryptography, Digital Forensics, and System Security.</p>
+    </section>
+
+    <section id="skills">
+      <h2>Technical Skills</h2>
+      <p>HTML, CSS, JavaScript, C++, SQL</p>
+    </section>
+
+    <section id="tools">
+      <h2>Tools & Tech</h2>
+      <p>VS Code, GitHub, MySQL, Linux, Postman, Canva</p>
+    </section>
+
+    <section id="programming">
+      <h2>Programming</h2>
+      <p>Proficient in C++ and JavaScript. Currently learning backend development with Node.js and Express.js. Also exploring basics of Python and APIs.</p>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <p>
+        <strong>1. Todo List App:</strong> A responsive task manager where users can add/delete tasks.<br>
+        <strong>2. Internship Finder (AI-based):</strong> Helps fresh graduates find internships easily and earns commission.<br>
+        <strong>3. Hackathon Project - KaamKhoj x Jhola:</strong> Digital platform to connect low-income workers & micro vendors with local opportunities.
+      </p>
+    </section>
+  </div>
+
+  <script>
+    const links = document.querySelectorAll('.sidebar ul li a');
+    const sections = document.querySelectorAll('section');
+
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        links.forEach(l => l.classList.remove('active'));
+        sections.forEach(s => s.classList.remove('active'));
+
+        this.classList.add('active');
+        const target = document.querySelector(this.getAttribute('href'));
+        target.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
